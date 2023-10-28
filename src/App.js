@@ -6,7 +6,7 @@ const App = () => {
   const [input, setInput] = useState('');
   const [leftList, setLeftList] = useState([]);
   const [rightList, setRightList] = useState([]);
-
+  // wow
   const openpage = () => {
     setMenu(!menu);
   };
@@ -53,6 +53,7 @@ const App = () => {
 
   return (
     <>
+
       <div className="Main">
         { menu && (
           <div className="popup">
