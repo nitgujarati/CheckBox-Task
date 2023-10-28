@@ -26,21 +26,17 @@ const App = () => {
   };
 
   const leftHandleChange = (e, id) => {
-    if (e.target.checked) {
-      const leftListFilter = leftList.map((ele, index) =>
-        index === id ? { ...ele, chBox: true } : ele
-      );
-      setLeftList(leftListFilter);
-    }
+    const updatedLeftList = leftList.map((ele, index) =>
+      index === id ? { ...ele, chBox: e.target.checked } : ele
+    );
+    setLeftList(updatedLeftList);
   };
 
   const rightHandleChange = (e, id) => {
-    if (e.target.checked) {
-      const rightListFilter = rightList.map((ele, index) =>
-        index === id ? { ...ele, chBox: true } : ele
-      );
-      setRightList(rightListFilter);
-    }
+    const updatedRightList = rightList.map((ele, index) =>
+      index === id ? { ...ele, chBox: e.target.checked } : ele
+    );
+    setRightList(updatedRightList);
   };
 
   const goToRight = () => {
@@ -68,8 +64,7 @@ const App = () => {
               </div>
             </div>
           </div>
-        )
-        }
+        ) }
         <div className="btn1">
           <button onClick={ openpage }>Add</button>
         </div>
@@ -80,15 +75,13 @@ const App = () => {
                 <label htmlFor="">
                   <input
                     type="checkbox"
-
+                    checked={ ele.chBox }
                     onChange={ (e) => leftHandleChange(e, index) }
                   />
                   { ele.name }
                 </label>
               </div>
-
-            )
-            ) }
+            )) }
           </div>
           <div className="btn">
             <button onClick={ goToRight }>Right</button>
@@ -100,6 +93,7 @@ const App = () => {
                 <label htmlFor="">
                   <input
                     type="checkbox"
+                    checked={ ele.chBox }
                     onChange={ (e) => rightHandleChange(e, index) }
                   />
                   { ele.name }
